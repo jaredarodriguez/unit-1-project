@@ -4,4 +4,5 @@ You’re a guitarist, playing a massive gig to a sold out venue until all of a s
 Act quick and inspect your pedals to locate the issue. One of the cords insn't plugged in, disrupting the circuit. Complete teh connection by clicking around to find which input is faulty.//
 
 
+WIREFRAME // https://wireframe.cc/pro/pp/3787424d4264834 // 
 
