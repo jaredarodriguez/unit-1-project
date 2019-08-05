@@ -1,8 +1,8 @@
 //PseudoCode
 
-//pedalBoard is the parent object 
-//there are 12 (connectionVariable) inside the pedalBoard 
-//all connectionVariables exist on the the left and right side of the pedal image
+// pedalBoard is the parent object 
+// there are 12 (connectionVariable) inside the pedalBoard 
+// connectionVariables exist on the the left and right side of the pedal image
 //connectionVariable has a click state 
 //the game will be initiated by a start button  
 //when the game is initiated two things happen 
@@ -21,7 +21,16 @@
 //if the user loses a lose sequence occurs 
 
 /*----- constants -----*/
+pedalBoard; 
 
+flangerPedal (a, b);
+fuzzPedal (a, b);
+heavyMetalPedal (a, b);
+octavePedal (a, b);
+reverbPedal (a, b); 
+tremoloPedal (a, b);
+
+user 
 
 /*----- app's states (variables) -----*/
 let pedalBoard, results
@@ -32,8 +41,16 @@ let pedalBoard, results
 /*----- event listeners -----*/
 
 /*----- functions -----*/
-
-
+function init () {
+    pedalBoard = {
+        fuzzPedal: true,
+        heavyMetalPedal: true,
+        octavePedal: true,
+        reverbPedal: true, 
+        tremoloPedal: true 
+        
+    }
+}
 
 
 
