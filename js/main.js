@@ -20,6 +20,20 @@
 //if the user does not locate the falsy connectionVariable the user loses  
 //if the user loses a lose sequence occurs 
 
-const pedalBoard = {
+/*----- constants -----*/
 
-}
+
+/*----- app's states (variables) -----*/
+let pedalBoard, results
+
+
+/*----- cached elements -----*/
+
+/*----- event listeners -----*/
+
+/*----- functions -----*/
+
+
+
+
+

@@ -1,0 +1,55 @@
+html, * {
+    font-family: helvetica;
+    box-sizing: border-box;
+  }
+  
+
+body {
+    height: 100vh; 
+    display: grid; 
+    align-content: center;
+    grid-template-columns: 40vmin 10vmin 10vmin 10vmin; 
+    grid-template-rows: 30vmin 10vmin 10vmin; 
+}
+
+main {
+    display: grid; 
+    
+}
+
+#flanger {
+    width: 50px;
+    height: 100px;
+    
+}
+#fuzz {
+    width: 50px;
+    height: 100px;
+     
+}
+#heavy-metal {
+    width: 50px;
+    height: 100px;
+     
+}
+#octave {
+    width: 50px;
+    height: 100px;
+     
+}
+#reverb {
+    width: 50px;
+    height: 100px;
+     
+}
+#tremolo {
+    width: 50px;
+    height: 100px;
+     
+}
+
+#amp {
+    width: 240px;
+    height: 300px; 
+}
+

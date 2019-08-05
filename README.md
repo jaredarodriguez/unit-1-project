@@ -24,7 +24,7 @@ Stretch Goals:
 -interactive guitars 
 -interactive pedals 
 -interactive knobs on amp 
-
+-create more than one error point on the board 
 
 WIREFRAME // https://wireframe.cc/pro/pp/3787424d4264834 // 
 
