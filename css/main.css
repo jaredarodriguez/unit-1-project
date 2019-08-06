@@ -6,7 +6,7 @@ html, * {
 
 body {
     height: 100vh; 
-    display: grid; 
+    display: flex; 
     align-content: center;
     grid-template-columns: 40vmin 10vmin 10vmin 10vmin; 
     grid-template-rows: 30vmin 10vmin 10vmin; 

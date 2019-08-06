@@ -27,74 +27,51 @@
 //if the user does not locate the falsy connectionVariable the user loses  
 //if the user loses a lose sequence occurs 
 
-/*----- constants -----*/
-let pedalBoard = {
-    pedal1: "Flanger, 
-    pedal2: "Fuzz", 
-    pedal3: "Heavy-metal", 
-    pedal4: "Octave",
-    pedal5: "Reverb",
-    pedal6: "Tremolo"
-}; 
-
-
-
-
 /*----- app's states (variables) -----*/
 
-
-
+let fixed  = ''; 
+let pedalBoard;
 /*----- cached elements -----*/
-const results  = {
-    fuzz: document.getElementById: true, 
-    flangerPedalOutput: [], 
-    fuzzPedalInput: [], 
-    fuzzPedalOutput: [], 
-    heavyMetalPedalInput: [], 
-    heavyMetalPedalOutput: [], 
-    octavePedalInput: [], 
-    octavePedalOutput: [], 
-    reverbPedalInput: [], 
-    reverbPedalOutput: [], 
-    tremoloPedalInput: [],
-    tremoloPedalOutput: [], 
-}; 
+
 /*----- event listeners -----*/
-document.getElementById()
-    .addEventListener('click', troubleShoot);
+
 //unsure if i need to getElementById on each pedal and how to implement// 
 
 
 /*----- functions -----*/
-function init () {
-    pedalBoard = {
-        pedal1: "true",
-        flangerPedalOutput: "true", 
-        fuzzPedalInput: "true", 
-        fuzzPedalOutput: "true",
-        heavyMetalPedalInput: "true", 
-        heavyMetalPedalOutput: "true", 
-        octavePedalInput: "true", 
-        octavePedalOutput: "true", 
-        reverbPedalInput: "true", 
-        reverbPedalOutput: "true", 
-        tremoloPedalInput: "true", 
-        tremoloPedalOutput: "true"
-    }
-//above is what a completed pedalBoard circuit looks like// 
- 
- //above is the open pedalBoard for results to be filled// 
 
- function render() {
-//render if board has complete circuit// 
+init();
 
-
- }; 
-
- function troubleShoot(){
-    console.log('clicked'); 
- }
+function init() {
+    pedalBoard  = [
+        ['flangerPedalInput', true],
+        ['flangerPedalOutput', true],  
+        ['fuzzPedalInput', true],
+        ['fuzzPedalOutput', true],
+        ['heavyMetalPedalInput', true], 
+        ['heavyMetalPedalOutput', true],
+        ['octavePedalInput', true], 
+        ['octavePedalOutput', true], 
+        ['reverbPedalInput', true],
+        ['reverbPedalOutput', true], 
+        ['tremoloPedalInput', true], 
+        ['tremoloPedalOutput', true],
+   ];
 }
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
 
+function corrupt(){
+    let randomIndex = getRandomInt(0, 12)
+    pedalBoard[randomIndex][1] = false; 
+    console.log(pedalBoard[randomIndex])
+}
 
+   
+//above is what a completed pedalBoard circuit looks like// 
+ 
+ //above is the open pedalBoard for results to be filled/
