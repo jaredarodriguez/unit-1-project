@@ -1,12 +1,12 @@
 //PseudoCode
 
-// pedalBoard is the parent object 
+// pedalBoard is the parent object XXX
 
-// there are 12 (connectionVariable) inside the pedalBoard 
+// there are 12 (connectionVariable) inside the pedalBoard XXX
 
-// connectionVariables exist on the the left and right side of the pedal image
+// connectionVariables exist on the the left and right side of the pedal image OOO
 
-//connectionVariable has a click state that returns true of false 
+//connectionVariable has a click state that returns true of false XXX
 
 //the game will be initiated by a start button (hover button that when motioned tursn on music)
     //when the game is initiated two things happen 
@@ -35,12 +35,12 @@ let pedalBoard;
 
 /*----- event listeners -----*/
 
-//unsure if i need to getElementById on each pedal and how to implement// 
+
 
 
 /*----- functions -----*/
 
-init();
+init ();
 
 function init() {
     pedalBoard  = [
@@ -69,9 +69,7 @@ function corrupt(){
     let randomIndex = getRandomInt(0, 12)
     pedalBoard[randomIndex][1] = false; 
     console.log(pedalBoard[randomIndex])
-}
+;}
 
    
-//above is what a completed pedalBoard circuit looks like// 
- 
- //above is the open pedalBoard for results to be filled/
+//above is a completed pedalBoard in its truest sense with a function that randomlly corrupts one of the buttons the user needs to flip back to true// 
