@@ -29,47 +29,78 @@
 
 /*----- app's states (variables) -----*/
 
-let fixed  = ''; 
-let pedalBoard;
+    
+
+
 /*----- cached elements -----*/
 
 /*----- event listeners -----*/
 
+// window.onload=function(){
+//     document.getElementById("my_audio").play();
+//   }
 
 
+var flangerPedalInput = document.getElementById('flangerPedalInput');
+var flangerPedalOutput = document.getElementById('flangerPedalOutput');
+var fuzzPedalInput = document.getElementById('fuzzPedalInput');
+var fuzzPedalOutput = document.getElementById('fuzzPedalOutput');
+var heavyMetalPedalInput = document.getElementById('heavyMetalPedalInput');
+var heavyMetalPedalOutput = document.getElementById('heavyMetalPedalOutput');
+var octavePedalInput = document.getElementById('octavePedalInput');
+var octavePedalOutput = document.getElementById('octavePedalOutput');
+var reverbPedalInput = document.getElementById('reverbPedalInput');
+var reverbPedalOutput = document.getElementById('reverbPedalInput');
+var tremoloPedalInput = document.getElementById('tremoloPedalInput');
+var tremoloPedalOutput = document.getElementById('tremoloPedalOutput'); 
 
 /*----- functions -----*/
 
-init ();
+// flangerPedalInput.onclick = function(){
+//     if([flangerPedalInput === false)
+//     return (flangerPedalInput = true)
+//     };
 
-function init() {
-    pedalBoard  = [
-        ['flangerPedalInput', true],
-        ['flangerPedalOutput', true],  
-        ['fuzzPedalInput', true],
-        ['fuzzPedalOutput', true],
-        ['heavyMetalPedalInput', true], 
-        ['heavyMetalPedalOutput', true],
-        ['octavePedalInput', true], 
-        ['octavePedalOutput', true], 
-        ['reverbPedalInput', true],
-        ['reverbPedalOutput', true], 
-        ['tremoloPedalInput', true], 
-        ['tremoloPedalOutput', true],
-   ];
-}
+
+// init ();
+
+// function init() {
+    
+    // setInterval(function run() {
+    //     console.log(i);
+    //     i++
+    //   }, 100);
+
+
+var pedalBoard  = {
+        'flangerPedalInput': true,
+        'flangerPedalOutput': true, 
+        'fuzzPedalInput': true,
+        'fuzzPedalOutput': true,
+        'heavyMetalPedalInput': true, 
+        'heavyMetalPedalOutput': true,
+        'octavePedalInput': true,
+        'octavePedalOutput': true, 
+        'reverbPedalInput': true,
+        'reverbPedalOutput': true, 
+        'tremoloPedalInput': true, 
+        'tremoloPedalOutput': true,
+};
+console.log(pedalBoard); 
+
+//this is a complete pedalBaord 
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-}
+  return Math.floor(Math.random() * (max - min)) + min; 
+}; 
 
-function corrupt(){
-    let randomIndex = getRandomInt(0, 12)
-    pedalBoard[randomIndex][1] = false; 
-    console.log(pedalBoard[randomIndex])
-;}
 
-   
-//above is a completed pedalBoard in its truest sense with a function that randomlly corrupts one of the buttons the user needs to flip back to true// 
+// function corrupt(){
+//     let randomIndex = getRandomInt(0, 12)
+//     pedalBoard[randomIndex] = false; 
+//     console.log(pedalBoard[randomIndex])
+// };
+
+//this is a function to randomly change one of the key:value pairs in the pedalBoard from true to false 
