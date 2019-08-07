@@ -41,25 +41,23 @@ function  pauseMusic(){
 let gameSet = setTimeout(pauseMusic, 2000)
 /*----- event listeners -----*/
 
-var flangerPedalInput = document.getElementById('flangerPedalInput');
-var flangerPedalOutput = document.getElementById('flangerPedalOutput');
-var fuzzPedalInput = document.getElementById('fuzzPedalInput');
-var fuzzPedalOutput = document.getElementById('fuzzPedalOutput');
-var heavyMetalPedalInput = document.getElementById('heavyMetalPedalInput');
-var heavyMetalPedalOutput = document.getElementById('heavyMetalPedalOutput');
-var octavePedalInput = document.getElementById('octavePedalInput');
-var octavePedalOutput = document.getElementById('octavePedalOutput');
-var reverbPedalInput = document.getElementById('reverbPedalInput');
-var reverbPedalOutput = document.getElementById('reverbPedalInput');
-var tremoloPedalInput = document.getElementById('tremoloPedalInput');
-var tremoloPedalOutput = document.getElementById('tremoloPedalOutput'); 
+let flangerPedalInput = document.getElementById('flangerPedalInput');
+let flangerPedalOutput = document.getElementById('flangerPedalOutput');
+let fuzzPedalInput = document.getElementById('fuzzPedalInput');
+let fuzzPedalOutput = document.getElementById('fuzzPedalOutput');
+let heavyMetalPedalInput = document.getElementById('heavyMetalPedalInput');
+let heavyMetalPedalOutput = document.getElementById('heavyMetalPedalOutput');
+let octavePedalInput = document.getElementById('octavePedalInput');
+let octavePedalOutput = document.getElementById('octavePedalOutput');
+let reverbPedalInput = document.getElementById('reverbPedalInput');
+let reverbPedalOutput = document.getElementById('reverbPedalInput');
+let tremoloPedalInput = document.getElementById('tremoloPedalInput');
+let tremoloPedalOutput = document.getElementById('tremoloPedalOutput'); 
 
 /*----- functions -----*/
 
-flangerPedalInput.addEventListener('click', function(fix){
-    console.log(fix.target);
-    console.log(fix);
-})
+flangerPedalInput.addEventListener('click', function() {
+     /* do stuff here*/ })
 
 
 // init ();
