@@ -6,14 +6,16 @@ html, * {
 
 body {
     height: 100vh; 
-    display: flex; 
+    display: grid; 
     align-content: center;
     grid-template-columns: 40vmin 10vmin 10vmin 10vmin; 
     grid-template-rows: 30vmin 10vmin 10vmin; 
 }
 
-main {
+main.amp {
     display: grid; 
+    grid-template-columns: 1;
+    grid-template-rows: 1 / 3;
     
 }
 

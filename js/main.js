@@ -28,18 +28,18 @@
 //if the user loses a lose sequence occurs 
 
 /*----- app's states (variables) -----*/
-
-    
-
-
+ 
 /*----- cached elements -----*/
 
+window.onload = function() {
+    document.getElementById("my_audio").play();
+}
+//it's unclear if this is working// 
+function  pauseMusic(){ 
+    ween.pause();
+}
+let gameSet = setTimeout(pauseMusic, 2000)
 /*----- event listeners -----*/
-
-// window.onload=function(){
-//     document.getElementById("my_audio").play();
-//   }
-
 
 var flangerPedalInput = document.getElementById('flangerPedalInput');
 var flangerPedalOutput = document.getElementById('flangerPedalOutput');
@@ -56,10 +56,10 @@ var tremoloPedalOutput = document.getElementById('tremoloPedalOutput');
 
 /*----- functions -----*/
 
-// flangerPedalInput.onclick = function(){
-//     if([flangerPedalInput === false)
-//     return (flangerPedalInput = true)
-//     };
+flangerPedalInput.addEventListener('click', function(fix){
+    console.log(fix.target);
+    console.log(fix);
+})
 
 
 // init ();
@@ -72,23 +72,20 @@ var tremoloPedalOutput = document.getElementById('tremoloPedalOutput');
     //   }, 100);
 
 
-var pedalBoard  = {
-        'flangerPedalInput': true,
-        'flangerPedalOutput': true, 
-        'fuzzPedalInput': true,
-        'fuzzPedalOutput': true,
-        'heavyMetalPedalInput': true, 
-        'heavyMetalPedalOutput': true,
-        'octavePedalInput': true,
-        'octavePedalOutput': true, 
-        'reverbPedalInput': true,
-        'reverbPedalOutput': true, 
-        'tremoloPedalInput': true, 
-        'tremoloPedalOutput': true,
-};
-console.log(pedalBoard); 
-
-//this is a complete pedalBaord 
+var pedalBoard  = [
+    {flangerPedalInput: true},
+    {flangerPedalOutput: true}, 
+    {fuzzPedalInput: true},
+    {fuzzPedalOutput: true},
+    {heavyMetalPedalInput: true}, 
+    {heavyMetalPedalOutput: true},
+    {octavePedalInput: true},
+    {octavePedalOutput: true},
+    {reverbPedalInput: true},
+    {reverbPedalOutput: true}, 
+    {tremoloPedalInput: true},
+    {tremoloPedalOutput: true}
+]
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -96,11 +93,11 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min; 
 }; 
 
-
-// function corrupt(){
-//     let randomIndex = getRandomInt(0, 12)
-//     pedalBoard[randomIndex] = false; 
-//     console.log(pedalBoard[randomIndex])
-// };
+function corrupt(){
+    let randomIndex = getRandomInt(0, 12)
+    let key = Object.keys(pedalBoard[randomIndex]);
+    pedalBoard[randomIndex][key[0]] = false;
+    console.log(pedalBoard[randomIndex])
+};
 
 //this is a function to randomly change one of the key:value pairs in the pedalBoard from true to false 
