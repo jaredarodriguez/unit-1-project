@@ -12,7 +12,7 @@ body {
     grid-template-rows: 30vmin 10vmin 10vmin; 
 }
 
-main.amp {
+#pedalBoard, amp {
     display: grid; 
     grid-template-columns: 1;
     grid-template-rows: 1 / 3;
