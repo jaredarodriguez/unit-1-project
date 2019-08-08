@@ -1,14 +1,11 @@
 //PseudoCode
 
-//audio bug troubleshooting
+//audio bug troubleshooting ***
 //the game will be initiated by a start button (hover button that when motioned tursn on music)
 //when the game is initiated two things happen
 //the first thing that happens is a timer starts
 //the second thing that happens is a randomization initialization on our set of connectionVariable
 //this randomization changes one of the connections variables states from true to false
-
-//front end user portion
-//connectionVariable has a click state that returns true of false XXX
 
 //CSS portion
 // connectionVariables exist on the the left and right side of the pedal image OOO
@@ -44,15 +41,10 @@ var pedalBoard = [
 ];
 
 /*----- cached elements -----*/
-//it's unclear if any of this is working right now
+function startGame() {
+  setTimeout(corrupt, 37000);
+}
 
-window.onload = function() {
-  document.getElementById("my_audio").play();
-};
-
-// function  pauseMusic(){
-//     ween.pause();
-// }
 // let gameSet = setTimeout(pauseMusic, 2000)
 /*----- event listeners -----*/
 
@@ -89,30 +81,24 @@ function flipCondition(event) {
   //   console.log(clickedButtonId);
   //   let itemToCheck = pedalBoard.filter(item => item[clickedButtonId])[0];
   let itemToCheck = pedalBoard[randomIndex];
-
   //item[clickedButtonId])[0]; //-> {tremoloPedalOutput : true} my new variable itemToCheck now is asking to go through the pedalBoard array check out each item
   //   console.log(itemToCheck); // clickedButtonId = 'string'
   //   let itemKey = Object.keys(itemToCheck)[0]
-
   //my new variable takes itemToCheck and gets its key values
   //   console.table({
   //     ...itemToCheck,
   //     clickedButtonId,
   //     value: itemToCheck[clickedButtonId]
   //   });
-
   checkIfBroken(itemToCheck, clickedButtonId);
-  // ************************************************
-
+  // ************************************************]
   // we can use item to check to check the condition but we need to get its value
-
   //   console.log("clicked");
   //   if (itemToCheck === clickedButtonId) {
   //     return true;
   //   }
   //   return false;
 }
-
 flangerPedalInput.addEventListener("click", flipCondition);
 flangerPedalOutput.addEventListener("click", flipCondition);
 fuzzPedalInput.addEventListener("click", flipCondition);
@@ -139,8 +125,9 @@ function corrupt() {
   //maybe an extra step
   pedalBoard[randomIndex][key[0]] = false;
   //   console.log(pedalBoard[randomIndex]);
+  alert("Fix the board!");
 }
-
+///********WIN LOGIC*******/
 function checkIfBroken(obj, id) {
   //   console.log("hit");
   //   console.log(obj, id);
@@ -149,4 +136,5 @@ function checkIfBroken(obj, id) {
   }
 }
 
+startGame();
 //this is a function to randomly change one of the key:value pairs in the pedalBoard from true to false
