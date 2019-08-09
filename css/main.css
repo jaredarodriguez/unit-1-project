@@ -20,6 +20,12 @@ main {
   height: 75vmin;
 }
 
+p {
+  color: white;
+  text-align: center;
+  padding: 100 0 0 0;
+}
+
 #amp {
   height: 15vmin;
   grid-column: 1;
