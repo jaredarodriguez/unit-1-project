@@ -34,6 +34,9 @@ main {
   display: flex;
   justify-content: center;
   font-family: "New Rocker", cursive;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
 }
 
 #flangerPedal {
@@ -61,8 +64,8 @@ main {
 }
 
 #heavyMetalPedal {
-  grid-column-start: 5;
-  grid-column-end: 6;
+  grid-column-start: 4;
+  grid-column-end: 5;
   grid-row-start: 2;
 }
 
@@ -82,4 +85,17 @@ button {
   width: 500px;
   color: #dc04c3;
   font-family: "New Rocker", cursive;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+}
+
+#timer {
+  color: #dc04c3;
+  font-family: "New Rocker", cursive;
+  font-size: 80px;
+}
+
+#pedalBoard {
+  width: 5%;
 }

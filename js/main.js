@@ -26,7 +26,7 @@ function reload() {
 function playTrack() {
   frank = document.getElementById("Frank");
   frank.play();
-  setTimeout(corrupt, 1000);
+  setTimeout(corrupt, 10000);
 }
 
 /*----- event listeners -----*/
