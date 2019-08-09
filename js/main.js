@@ -1,6 +1,7 @@
 /*----- app's states (variables) -----*/
+let boardBroken;
 let randomIndex;
-
+let frank;
 var pedalBoard = [
   { flangerPedalInput: true },
   { flangerPedalOutput: true },
@@ -22,14 +23,10 @@ function reload() {
   location.reload();
 }
 
-function playMusic() {
-  var introTrack = document.getElementById("first_audio");
-  introTrack.play();
+function playTrack() {
+  frank = document.getElementById("Frank");
+  frank.play();
   setTimeout(corrupt, 1000);
-}
-
-function startTime() {
-  checkTime();
 }
 
 /*----- event listeners -----*/
@@ -53,7 +50,7 @@ function flipCondition(event) {
   let itemToCheck = pedalBoard[randomIndex];
   if (attemptToFix(itemToCheck, clickedButtonId)) {
     console.log("you won");
-    //document.getElementById(audio.play)//
+    frank.play();
   } else {
     console.log("try again");
   }
@@ -72,15 +69,24 @@ reverbPedalOutput.addEventListener("click", flipCondition);
 tremoloPedalInput.addEventListener("click", flipCondition);
 tremoloPedalOutput.addEventListener("click", flipCondition);
 
-var seconds_remaining = 15;
-
+var initial_timeout = 30;
+var current_seconds_remaining = initial_timeout;
 function checkTime() {
   document.getElementById("timer").innerHTML =
-    "You have " + seconds_remaining + " seconds left before you ruin the gig!";
-  if (seconds_remaining <= 0) {
+    "You have " +
+    current_seconds_remaining +
+    " seconds left before you ruin the gig!";
+  if (current_seconds_remaining <= 0) {
     alert("You blew it!");
   } else {
-    seconds_remaining = seconds_remaining - 1;
+    if (!boardBroken) {
+      initial_timeout--;
+      //decrease initial timeout to make the game harder
+      current_seconds_remaining = initial_timeout;
+      setTimeout(corrupt, Math.random() * 5000 + 5000);
+      return;
+    }
+    current_seconds_remaining--;
     setTimeout(checkTime, 1000);
   }
 }
@@ -89,12 +95,25 @@ function corrupt() {
   randomIndex = Math.floor(Math.random() * pedalBoard.length);
   let key = Object.keys(pedalBoard[randomIndex]);
   pedalBoard[randomIndex][key[0]] = false;
+  boardBroken = true;
+  checkTime();
+  frank.pause();
 }
 
 function attemptToFix(obj, key) {
   if (obj[key] === false) {
     pedalBoard[randomIndex][key] = true;
+    boardBroken = false;
     return true;
   }
   return false;
+}
+
+function readBoard() {
+  pedalBoard.forEach(function(pedal) {
+    var pedalName = Object.keys(pedal[0]);
+    if (!pedal[pedalName]) {
+      console.log(pedalName);
+    }
+  });
 }

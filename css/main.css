@@ -60,3 +60,12 @@ main {
   grid-column-end: 6;
   grid-row-start: 2;
 }
+
+#timer {
+  color: white;
+}
+
+button {
+  height: 80px;
+  width: 80px;
+}
