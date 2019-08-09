@@ -25,15 +25,11 @@ function reload() {
 function playMusic() {
   var introTrack = document.getElementById("first_audio");
   introTrack.play();
-  setTimeout(corrupt, 37000);
+  setTimeout(corrupt, 1000);
 }
 
-function fixBoard() {
+function startTime() {
   checkTime();
-}
-
-function reset() {
-  init();
 }
 
 /*----- event listeners -----*/
@@ -55,7 +51,12 @@ let tremoloPedalOutput = document.getElementById("tremoloPedalOutput");
 function flipCondition(event) {
   let clickedButtonId = event.target.id;
   let itemToCheck = pedalBoard[randomIndex];
-  checkIfBroken(itemToCheck, clickedButtonId);
+  if (attemptToFix(itemToCheck, clickedButtonId)) {
+    console.log("you won");
+    //document.getElementById(audio.play)//
+  } else {
+    console.log("try again");
+  }
 }
 
 flangerPedalInput.addEventListener("click", flipCondition);
@@ -71,35 +72,29 @@ reverbPedalOutput.addEventListener("click", flipCondition);
 tremoloPedalInput.addEventListener("click", flipCondition);
 tremoloPedalOutput.addEventListener("click", flipCondition);
 
-var total_seconds = 15;
+var seconds_remaining = 15;
 
 function checkTime() {
   document.getElementById("timer").innerHTML =
-    "You have " + total_seconds + " seconds left before you ruin the gig!";
-  if (total_seconds <= 0) {
+    "You have " + seconds_remaining + " seconds left before you ruin the gig!";
+  if (seconds_remaining <= 0) {
     alert("You blew it!");
   } else {
-    total_seconds = total_seconds - 1;
-    setTimeout("checkTime()", 1000);
+    seconds_remaining = seconds_remaining - 1;
+    setTimeout(checkTime, 1000);
   }
 }
 
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
 function corrupt() {
-  randomIndex = getRandomInt(0, 12);
+  randomIndex = Math.floor(Math.random() * pedalBoard.length);
   let key = Object.keys(pedalBoard[randomIndex]);
   pedalBoard[randomIndex][key[0]] = false;
 }
 
-function checkIfBroken(obj, key) {
+function attemptToFix(obj, key) {
   if (obj[key] === false) {
     pedalBoard[randomIndex][key] = true;
+    return true;
   }
-  alert("you fixed it!");
-  play();
+  return false;
 }
