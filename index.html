@@ -9,11 +9,10 @@
     <script defer src="js/main.js"></script>
   </head>
   <body>
-    <audio
-      id="first_audio"
-      src="assets/03Frank_first.mp3"
-      autoplay="autoplay"
-    ></audio>
+    <div id="timer"></div>
+    <input type="button" value="Play track" onclick="playMusic()" />
+    <input type="button" value="Fix board" onclick="fixBoard()" />
+    <audio id="first_audio" src="assets/03Frank_first.mp3"></audio>
     <main id="pedalBoard">
       <div id="amp">
         <img src="assets/Amplifier.png" alt="Amp" />

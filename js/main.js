@@ -1,27 +1,4 @@
-//PseudoCode
-
-//audio bug troubleshooting ***
-//the game will be initiated by a start button (hover button that when motioned tursn on music)
-//when the game is initiated two things happen
-//the first thing that happens is a timer starts
-//the second thing that happens is a randomization initialization on our set of connectionVariable
-//this randomization changes one of the connections variables states from true to false
-
-//CSS portion
-// connectionVariables exist on the the left and right side of the pedal image OOO
-
-//if the pedalBoard does not have all connection variables in a state of true it does not work
-//while the pedalBoard is in an incomplete state of true the timer continues
-//the timer manipulates a meter we call: fanMeter
-//fanMeter is a visual representation of how much time the user has left until time reaches 0
-//the closer the timer gets to zero the closer the bar goes from full to empty
-//while pedalBoard is in an incomplete state of truthy the user is prompted to click around pedal board to find what connectionVariable is falsy
-
-//if the user locates the  falsy connectionVariable the user wins
-//if the user wins a win sequence occurs
-//if the user does not locate the falsy connectionVariable the user loses
-//if the user loses a lose sequence occurs
-
+/*----- app's states (variables) -----*/
 /*----- app's states (variables) -----*/
 let randomIndex;
 
@@ -40,14 +17,26 @@ var pedalBoard = [
   { tremoloPedalOutput: true }
 ];
 
+// done - create start button that initiates 1st audio clip
+// todo - fix button initiates timer & corrupt
+// todo - win logic sequence occurs
+// todo - paragraph markup descirbing game and succession of how to use
+
 /*----- cached elements -----*/
-function startGame() {
+
+function playMusic() {
+  var introTrack = document.getElementById("first_audio");
+  introTrack.play();
   setTimeout(corrupt, 37000);
 }
 
-// let gameSet = setTimeout(pauseMusic, 2000)
-/*----- event listeners -----*/
+function fixBoard() {
+  checkTime();
+}
+// }
 
+/*----- event listeners -----*/
+let timeHandle = document.getElementById("timer");
 let flangerPedalInput = document.getElementById("flangerPedalInput");
 let flangerPedalOutput = document.getElementById("flangerPedalOutput");
 let fuzzPedalInput = document.getElementById("fuzzPedalInput");
@@ -60,45 +49,14 @@ let reverbPedalInput = document.getElementById("reverbPedalInput");
 let reverbPedalOutput = document.getElementById("reverbPedalInput");
 let tremoloPedalInput = document.getElementById("tremoloPedalInput");
 let tremoloPedalOutput = document.getElementById("tremoloPedalOutput");
-
 /*----- functions -----*/
-// init ()
 
-//for each loop to go through the array of objects
-
-// //locating the random index
-// //if random index === event target name then it becomes true
-
-// TODO in the flipCondition function figuer out how to check if the pedal is broken
-
-// run me through the entire flipCondition line by line
-/********************************THIS IS THE CLICK EVENT ****************************/
 function flipCondition(event) {
-  //creates a function that points to an event
   let clickedButtonId = event.target.id;
-  //the thing that was clicked now becomes my clickedButtonID
-  //   let itemToCheck = pedalBoard[clickedButtonId]
-  //   console.log(clickedButtonId);
-  //   let itemToCheck = pedalBoard.filter(item => item[clickedButtonId])[0];
   let itemToCheck = pedalBoard[randomIndex];
-  //item[clickedButtonId])[0]; //-> {tremoloPedalOutput : true} my new variable itemToCheck now is asking to go through the pedalBoard array check out each item
-  //   console.log(itemToCheck); // clickedButtonId = 'string'
-  //   let itemKey = Object.keys(itemToCheck)[0]
-  //my new variable takes itemToCheck and gets its key values
-  //   console.table({
-  //     ...itemToCheck,
-  //     clickedButtonId,
-  //     value: itemToCheck[clickedButtonId]
-  //   });
   checkIfBroken(itemToCheck, clickedButtonId);
-  // ************************************************]
-  // we can use item to check to check the condition but we need to get its value
-  //   console.log("clicked");
-  //   if (itemToCheck === clickedButtonId) {
-  //     return true;
-  //   }
-  //   return false;
 }
+
 flangerPedalInput.addEventListener("click", flipCondition);
 flangerPedalOutput.addEventListener("click", flipCondition);
 fuzzPedalInput.addEventListener("click", flipCondition);
@@ -112,6 +70,19 @@ reverbPedalOutput.addEventListener("click", flipCondition);
 tremoloPedalInput.addEventListener("click", flipCondition);
 tremoloPedalOutput.addEventListener("click", flipCondition);
 
+var total_seconds = 15;
+
+function checkTime() {
+  document.getElementById("timer").innerHTML =
+    "You have " + total_seconds + " seconds left before you ruin the gig!";
+  if (total_seconds <= 0) {
+    alert("You blew it!");
+  } else {
+    total_seconds = total_seconds - 1;
+    setTimeout("checkTime()", 1000);
+  }
+}
+
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -119,22 +90,15 @@ function getRandomInt(min, max) {
 }
 
 function corrupt() {
-  randomIndex = getRandomInt(0, 12); //of type number
-  //   console.table({ randomIndex, pedalBoard }); // prints a table of a given objects key value pairs
+  randomIndex = getRandomInt(0, 12);
   let key = Object.keys(pedalBoard[randomIndex]);
-  //maybe an extra step
   pedalBoard[randomIndex][key[0]] = false;
-  //   console.log(pedalBoard[randomIndex]);
-  alert("Fix the board!");
 }
 ///********WIN LOGIC*******/
-function checkIfBroken(obj, id) {
-  //   console.log("hit");
-  //   console.log(obj, id);
-  if (obj[id] === false) {
-    pedalBoard[randomIndex][id] = true;
+function checkIfBroken(obj, key) {
+  if (obj[key] === false) {
+    pedalBoard[randomIndex][key] = true;
   }
+  alert("you fixed it!");
+  play();
 }
-
-startGame();
-//this is a function to randomly change one of the key:value pairs in the pedalBoard from true to false
