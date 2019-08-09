@@ -9,14 +9,19 @@
     <script defer src="js/main.js"></script>
   </head>
   <body>
-    <div id="timer"></div>
-    <input type="button" value="Play track" onclick="playMusic()" />
-    <input type="button" value="Fix board" onclick="fixBoard()" />
-    <audio id="first_audio" src="assets/03Frank_first.mp3"></audio>
     <main id="pedalBoard">
-      <div id="amp">
-        <img src="assets/Amplifier.png" alt="Amp" />
-      </div>
+      <img id="amp" src="assets/Amplifier.png" alt="Amp" />√
+      <div id="timer"></div>
+      <input
+        id="playTrack"
+        type="button"
+        value="Play track"
+        onclick="playMusic()"
+      />
+      <input type="button" value="Fix board" onclick="fixBoard()" />
+      <input type="button" value="Restart" onclick="reload()" />
+      <audio id="first_audio" src="assets/03Frank_first.mp3"></audio>
+
       <div id="flangerPedal">
         <img src="assets/Flanger_pedal.png" alt="Flanger" />
         <button id="flangerPedalInput"></button>

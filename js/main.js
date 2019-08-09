@@ -1,5 +1,4 @@
 /*----- app's states (variables) -----*/
-/*----- app's states (variables) -----*/
 let randomIndex;
 
 var pedalBoard = [
@@ -17,12 +16,11 @@ var pedalBoard = [
   { tremoloPedalOutput: true }
 ];
 
-// done - create start button that initiates 1st audio clip
-// todo - fix button initiates timer & corrupt
-// todo - win logic sequence occurs
-// todo - paragraph markup descirbing game and succession of how to use
-
 /*----- cached elements -----*/
+
+function reload() {
+  location.reload();
+}
 
 function playMusic() {
   var introTrack = document.getElementById("first_audio");
@@ -33,7 +31,10 @@ function playMusic() {
 function fixBoard() {
   checkTime();
 }
-// }
+
+function reset() {
+  init();
+}
 
 /*----- event listeners -----*/
 let timeHandle = document.getElementById("timer");
@@ -94,7 +95,7 @@ function corrupt() {
   let key = Object.keys(pedalBoard[randomIndex]);
   pedalBoard[randomIndex][key[0]] = false;
 }
-///********WIN LOGIC*******/
+
 function checkIfBroken(obj, key) {
   if (obj[key] === false) {
     pedalBoard[randomIndex][key] = true;
