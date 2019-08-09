@@ -16,20 +16,20 @@ main {
   display: grid;
   grid-template-rows: 2fr 1fr 1fr;
   grid-template-columns: 2fr 1fr 1fr 1fr;
+  position: absolute;
+  height: 75vmin;
 }
 
 #amp {
-  height: 1000px;
-  width: 790px;
-  justify-content: center;
-  align-content: center;
+  height: 15vmin;
+  grid-column: 1;
+  grid-row: 1;
 }
 
 #playTrack {
   background-color: #738281;
-  height: 200px;
-  width: 500px;
-  font-size: 95px;
+  height: 10vmin;
+  font-size: 2vmin;
   color: #dc04c3;
   display: flex;
   justify-content: center;
@@ -39,50 +39,10 @@ main {
   grid-row-start: 1;
 }
 
-#flangerPedal {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 2;
-}
-
-#reverbPedal {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  align-content: center;
-}
-
-#tremoloPedal {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 3;
-}
-
-#fuzzPedal {
-  grid-column-start: 4;
-  grid-column-end: 5;
-  grid-row-start: 3;
-}
-
-#heavyMetalPedal {
-  grid-column-start: 4;
-  grid-column-end: 5;
-  grid-row-start: 2;
-}
-
-#timer {
-  color: white;
-}
-
-button {
-  height: 80px;
-  width: 80px;
-}
-
 #Restart {
   background-color: #738281;
-  height: 200px;
-  font-size: 95px;
-  width: 500px;
+  height: 10vmin;
+  font-size: 2, vmin;
   color: #dc04c3;
   font-family: "New Rocker", cursive;
   grid-column-start: 4;
@@ -90,12 +50,79 @@ button {
   grid-row-start: 1;
 }
 
+#flangerPedal {
+  grid-column-start: 3;
+  grid-row-start: 2;
+  background: #ff94fd;
+}
+
+#reverbPedal {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  align-content: center;
+  background: #ff94fd;
+}
+
+#tremoloPedal {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  background: #ff94fd;
+}
+
+#fuzzPedal {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  background: #ff94fd;
+}
+
+#heavyMetalPedal {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  background: #ff94fd;
+}
+
+#octavePedal {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  background: #ff94fd;
+}
+
+button {
+  height: 3.5vmin;
+}
+
 #timer {
   color: #dc04c3;
   font-family: "New Rocker", cursive;
-  font-size: 80px;
+  font-size: 1, vmin;
+  grid-column-start: 2;
+  grid-row-start: 1;
 }
 
-#pedalBoard {
-  width: 5%;
+#flanger {
+  height: 10vmin;
+}
+
+#tremolo {
+  height: 10vmin;
+}
+
+#octave {
+  height: 10vmin;
+}
+
+#reverb {
+  height: 10vmin;
+}
+
+#heavyMetal {
+  height: 10vmin;
+}
+
+#fuzz {
+  height: 10vmin;
 }

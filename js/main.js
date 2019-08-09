@@ -69,13 +69,11 @@ reverbPedalOutput.addEventListener("click", flipCondition);
 tremoloPedalInput.addEventListener("click", flipCondition);
 tremoloPedalOutput.addEventListener("click", flipCondition);
 
-var initial_timeout = 30;
+var initial_timeout = 15;
 var current_seconds_remaining = initial_timeout;
 function checkTime() {
   document.getElementById("timer").innerHTML =
-    "You have " +
-    current_seconds_remaining +
-    " seconds left before you ruin the gig!";
+    current_seconds_remaining + " seconds left before you ruin the gig!";
   if (current_seconds_remaining <= 0) {
     alert("You blew it!");
   } else {
